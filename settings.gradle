@@ -1,4 +1,3 @@
-include ':data'
-include ':domain'
+include ':core'
 include ':app'
 rootProject.name = "MP_Android_Bonita"
