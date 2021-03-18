@@ -31,9 +31,9 @@ class ProcessViewHolder (itemView: View): RecyclerView.ViewHolder(itemView) {
             itemView.context.startActivity(intent)
         }
 
-        label.text = process.label
-        type.text = process.type
-        createdOn.text = process.createdOn
+        label.text = process.name
+        type.text = process.version
+        createdOn.text = process.deploymentDate.toString()
     }
 
 }

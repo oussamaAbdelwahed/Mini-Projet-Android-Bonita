@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">MP_Android_Bonita</string>
+    <string name="app_name">Mini-Projet Android &amp; Bonita</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login_cookies">login_cookies_shared_preferences</string>
 
 </resources>

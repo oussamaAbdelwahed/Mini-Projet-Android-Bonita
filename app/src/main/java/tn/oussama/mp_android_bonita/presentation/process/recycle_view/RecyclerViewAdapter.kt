@@ -8,18 +8,33 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.process_recycler_view_item.view.*
 import tn.oussama.core.domain.Process
 import tn.oussama.mp_android_bonita.R
+import java.util.*
+
+/*
+*   var id: Long=0,
+      var icon: String="",
+      var deploymentDate: Date,
+      var description: String="",
+      var activationState: String="",
+      var name: String="",
+      var deployedBy: Int=0,
+      var actorInitiatorId: Long=0,
+      var lastUpdateDate: Date?=null,
+      var configurationState: String="",
+      var version: String="",
+* */
 
 class RecyclerViewAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val dataSet : List<Process>  = listOf(
-        Process("Process 1","ADMIN","1 day ago"),
-        Process("Process 2","EXTERN","2 day ago"),
-        Process("Process 3","USERS","6 day ago"),
-        Process("Process 4","ADMIN","1 day ago"),
-        Process("Process 5","USERS","3 day ago"),
-        Process("Process 6","ADMIN","2day ago"),
-        Process("Process 7","EXTERN","1 day ago"),
-        Process("Process 8","ADMIN","1 day ago"),
+        Process(id=1,version = "ADMIN",name="1 day ago",deploymentDate=  Date(System.currentTimeMillis())),
+        Process(id=2,version="EXTERN",name="2 day ago",deploymentDate=  Date(System.currentTimeMillis())),
+        Process(id=3,version="USERS",name="6 day ago",deploymentDate=  Date(System.currentTimeMillis())),
+        Process(id=4,version="ADMIN",name="1 day ago",deploymentDate=  Date(System.currentTimeMillis())),
+        Process(id=5,version="USERS",name="3 day ago",deploymentDate=  Date(System.currentTimeMillis())),
+        Process(id=6,version="ADMIN",name="2day ago",deploymentDate=  Date(System.currentTimeMillis())),
+        Process(id=7,version="EXTERN",name="1 day ago",deploymentDate=  Date(System.currentTimeMillis())),
+        Process(id=8,version="ADMIN",name="1 day ago",deploymentDate=  Date(System.currentTimeMillis()))
     )
 
 
