@@ -1,12 +1,13 @@
 package tn.oussama.core.domain
 
+import java.io.Serializable
 import java.util.*
 
 //to finish IMPL when reading bonita user entity DOCS
 data class Process
     (
       var id: Long=0,
-      var icon: String="",
+      var icon: String?="",
       var deploymentDate: Date,
       var description: String="",
       var activationState: String="",
@@ -16,6 +17,6 @@ data class Process
       var lastUpdateDate: Date?=null,
       var configurationState: String="",
       var version: String="",
-    )
+    ):Serializable
 {
 }

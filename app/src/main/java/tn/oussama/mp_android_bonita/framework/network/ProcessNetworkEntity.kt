@@ -24,7 +24,7 @@ class ProcessNetworkEntity
 
       @SerializedName("icon")
       @Expose
-      var icon: String,
+      var icon: String?,
 
       @SerializedName("displayDescription")
       @Expose

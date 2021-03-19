@@ -13,7 +13,7 @@ constructor():EntityMapper<ProcessNetworkEntity,Process>
     override fun mapFromEntity(entity: ProcessNetworkEntity): Process {
       return Process(
          id = entity.id,
-         icon= entity.icon,
+         icon= entity?.icon,
          deploymentDate= entity.deploymentDate,
          description=if(entity.displayDescription.isEmpty()) entity.description else entity.displayDescription  ,
          activationState=entity.activationState,
@@ -24,6 +24,12 @@ constructor():EntityMapper<ProcessNetworkEntity,Process>
          configurationState=entity.configurationState,
          version=entity.version,
       )
+    }
+
+    fun mapFromEntityList(l:List<ProcessNetworkEntity>): List<Process> {
+        return l.map {
+            mapFromEntity(it)
+        }
     }
 
     override fun mapToEntiy(domainModel: Process): ProcessNetworkEntity {

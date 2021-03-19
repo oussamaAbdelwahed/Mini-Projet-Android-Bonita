@@ -16,24 +16,18 @@ class ProcessViewHolder (itemView: View): RecyclerView.ViewHolder(itemView) {
     val label: TextView = itemView.label
     val type: TextView = itemView.type
     val createdOn: TextView = itemView.createdOn
+    //add other fields here
     val btn: Button = itemView.btnShowMore
 
-    init {
-
-    }
-
-    fun bind(process: Process) {
+     fun bind(process: Process) {
         btn.setOnClickListener{
             val intent = Intent(itemView.context, ProcessActivity::class.java).apply {
-                putExtra("USER_CREDENTIALS", "NOTHING")
+                putExtra("PROCESS_ID", process.id)
             }
-
             itemView.context.startActivity(intent)
         }
-
         label.text = process.name
         type.text = process.version
         createdOn.text = process.deploymentDate.toString()
     }
-
 }

@@ -5,6 +5,7 @@ import dagger.hilt.InstallIn
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Provides
+import dagger.hilt.android.components.ActivityComponent
 
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
@@ -28,7 +29,7 @@ object RetrofitModule {
     @Singleton
     @Provides
     fun provideGsonBuilder(): Gson {
-        return GsonBuilder().excludeFieldsWithoutExposeAnnotation().create()
+        return GsonBuilder().excludeFieldsWithoutExposeAnnotation().setDateFormat("yyyy-MM-dd hh:mm:ss.S").create()
     }
 
     @Singleton

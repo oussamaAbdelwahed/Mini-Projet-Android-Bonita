@@ -13,18 +13,51 @@
     android:layout_height="match_parent"
     >
 
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:id="@+id/innerConstraintLayout"
+           android:layout_width="match_parent"
+           android:layout_height="90dp"
+           android:visibility="visible"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent">
+
+           <ProgressBar
+               android:id="@+id/spinnerRV"
+               style="?android:attr/progressBarStyle"
+               android:layout_width="129dp"
+               android:layout_height="46dp"
+               android:layout_marginTop="10dp"
+               android:backgroundTint="#090909"
+               android:visibility="visible"
+               app:layout_constraintBottom_toTopOf="@+id/errorMsg"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="@+id/errorMsg"
+               app:layout_constraintTop_toTopOf="parent" />
+
+           <TextView
+               android:id="@+id/errorMsg"
+               android:layout_width="0dp"
+               android:layout_height="0dp"
+               android:visibility="visible"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/spinnerRV" />
+       </androidx.constraintlayout.widget.ConstraintLayout>
+
        <androidx.recyclerview.widget.RecyclerView
            android:id="@+id/recyclerView"
            android:layout_width="match_parent"
            android:layout_height="match_parent"
            app:layout_constraintBottom_toBottomOf="parent"
            app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintHorizontal_bias="0.0"
            app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toTopOf="parent" />
+           app:layout_constraintTop_toTopOf="@+id/innerConstraintLayout"
+           app:layout_constraintVertical_bias="1.0" />
 
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+   </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.fragment.app.FragmentContainerView
         android:layout_width="match_parent"

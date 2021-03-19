@@ -1,4 +1,7 @@
 package tn.oussama.core.domain
+
+import java.io.Serializable
+
 //to finish IMPL when reading bonita user entity DOCS
 data class User
     (
@@ -8,5 +11,5 @@ data class User
      val firstName: String,
      val lastName: String,
      val icon: String
-    )
+    ): Serializable
 {}
