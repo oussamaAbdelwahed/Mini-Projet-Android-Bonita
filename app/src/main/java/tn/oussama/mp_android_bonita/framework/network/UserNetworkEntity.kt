@@ -19,29 +19,22 @@ import com.google.gson.annotations.SerializedName
     curl -b saved_cookies.txt -X GET --url 'http://localhost:8080/bonita/logoutservice?redirect=false'
 * */
 data class UserNetworkEntity (
-    @SerializedName("id")
+    @SerializedName("user_id")
     @Expose
     var id: Long,
 
-    @SerializedName("job_title")
-    @Expose
-    var jobTitle: String,
-
-    @SerializedName("userName")
+    @SerializedName("user_name")
     @Expose
     var userName: String,
 
-    @SerializedName("firstname")
+    @SerializedName("is_guest_user")
     @Expose
-    var firstName: String,
+    var isGuestUser: Boolean,
 
-    @SerializedName("lastname")
+    @SerializedName("is_technical_user")
     @Expose
-    var lastName: String,
+    var isTechnicalUser: Boolean,
 
-    @SerializedName("icon")
-    @Expose
-    var icon: String
 ) {}
 
 /*

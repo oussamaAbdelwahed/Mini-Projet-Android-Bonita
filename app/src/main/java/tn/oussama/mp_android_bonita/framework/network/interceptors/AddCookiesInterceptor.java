@@ -32,8 +32,13 @@ public class AddCookiesInterceptor  implements Interceptor {
         Request original = chain.request();
         if(!original.url().toString().contains(LOGIN_URL_TO_EXCEPT)){
             for (String cookie : preferences) {
+                if(cookie.equalsIgnoreCase("X-Bonita-API-Token")) {
+                    Log.v("****FINDING TH CORRECT HEADER****",cookie);
+                }
                 builder.addHeader("Cookie", cookie);
             }
+            //preferences.
+           builder.addHeader("X-Bonita-API-Token",MainActivity.preferences.getString("X-Bonita-API-Token",""));
         }
         return chain.proceed(builder.build());
     }

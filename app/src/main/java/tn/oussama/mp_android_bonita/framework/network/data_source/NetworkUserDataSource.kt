@@ -1,6 +1,7 @@
 package tn.oussama.mp_android_bonita.framework.network.data_source
 
 import android.util.Log
+import android.widget.Toast
 import dagger.hilt.android.AndroidEntryPoint
 import retrofit2.Response
 import tn.oussama.core.data.DataState
@@ -16,8 +17,10 @@ class NetworkUserDataSource(val userRetrofit : UserRetrofit, val userNetworkMapp
         try {
              val r = userRetrofit.login(username, password)
             if(r.code()  in 200..300) {
+                 Log.v("***LOGIN***","IN 200 .. 300 STATUS")
                 return DataState.Success(true)
             }else{
+                Log.v("***LOGIN***","NOT IN 200 .. 300 STATUS")
                 return DataState.Success(false)
             }
         } catch (e: Exception) {
@@ -45,8 +48,8 @@ class NetworkUserDataSource(val userRetrofit : UserRetrofit, val userNetworkMapp
 
     override suspend fun getInformations(username: String): DataState<User> {
         try {
-            val networkUser = userRetrofit.getInformations(username)
-            return DataState.Success(userNetworkMapper.mapFromEntity(networkUser[0]))
+            val networkUser = userRetrofit.getInformations()
+            return DataState.Success(userNetworkMapper.mapFromEntity(networkUser))
         }catch(e: Exception) {
             Log.i("***************NETWORK_LOGIN_CALL***************",e.toString())
             return DataState.Error(e)

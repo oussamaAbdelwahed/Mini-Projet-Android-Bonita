@@ -1,6 +1,10 @@
 package tn.oussama.mp_android_bonita.framework.utils
 
+import android.content.Context
 import android.content.SharedPreferences
+import android.view.View
+import android.widget.DatePicker
+import android.widget.EditText
 import com.google.gson.Gson
 import tn.oussama.core.domain.User
 import tn.oussama.mp_android_bonita.MainActivity
@@ -28,3 +32,19 @@ fun clearUserSession() {
     val prefsEditor: SharedPreferences.Editor =  MainActivity.preferences.edit();
     prefsEditor.clear().commit()
 }
+
+fun createUIWidgetFromType(type: InputType, ctx: Context): View? {
+    when(type) {
+      InputType.TEXT -> {
+         return EditText(ctx)
+      }
+      InputType.LOCALDATE -> {
+         return DatePicker(ctx)
+      }
+      InputType.OFFSETDATETIME -> {
+         return DatePicker(ctx)
+      }
+    }
+    return null;
+}
+

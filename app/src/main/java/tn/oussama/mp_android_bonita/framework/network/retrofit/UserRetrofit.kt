@@ -18,6 +18,9 @@ interface UserRetrofit {
     @GET("bonita/logoutservice?redirect=false")
     suspend fun logout() : Response<Unit>
 
-    @GET("bonita/API/identity/user")
-    suspend fun getInformations(@Query("f", encoded = true) username:String): List<UserNetworkEntity>
+    //bonita/API/system/session/{id}
+    //@GET("bonita/API/identity/user")
+    //the id is unused , always this call returns the current session infos
+    @GET("bonita/API/system/session/{id}")
+    suspend fun getInformations(@Path(value = "id") id:Long=1): UserNetworkEntity
 }

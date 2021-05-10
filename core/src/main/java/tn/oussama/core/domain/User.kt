@@ -6,10 +6,8 @@ import java.io.Serializable
 data class User
     (
      val id: Long,
-     val jobTitle: String,
      val userName: String,
-     val firstName: String,
-     val lastName: String,
-     val icon: String
+     val isGuestUser: Boolean,
+     val isTechnicalUser: Boolean,
     ): Serializable
 {}
