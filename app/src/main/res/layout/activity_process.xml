@@ -62,6 +62,12 @@
                 android:paddingBottom="20dp"
                 android:paddingTop="40dp">
 
+                <TextView
+                    android:id="@+id/requiredFieldsMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Les champs obligatoires sont precédés  par le symbole '*'"
+                    android:textColor="#F33232" />
             </LinearLayout>
         </ScrollView>
 

@@ -1,9 +1,9 @@
 package tn.oussama.mp_android_bonita.framework.network.retrofit
 
-import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.Response
+import retrofit2.http.*
 import tn.oussama.core.domain.ProcessContract
+import tn.oussama.core.domain.ProcessInstanceSubmitResponse
 import tn.oussama.mp_android_bonita.framework.network.ProcessNetworkEntity
 
 interface ProcessRetrofit {
@@ -44,5 +44,9 @@ interface ProcessRetrofit {
         @Query("f",encoded = true) state:String="activationState=ENABLED"
 
     ): List<ProcessNetworkEntity>
+
+    @Headers( "Content-Type: application/json" )
+    @POST("bonita/API/bpm/process/{processID}/instantiation")
+    suspend fun submitProcessInstance(@Path("processID") processID: Long,@Body body: HashMap<String, HashMap<String,Any>>) : ProcessInstanceSubmitResponse
 
 }

@@ -35,7 +35,8 @@ public class ReceivedCookiesInterceptor implements Interceptor {
             HashSet<String> cookies  = (HashSet<String>) MainActivity.preferences.getStringSet("PREF_COOKIES", new HashSet<String>());
             for (String header : originalResponse.headers("Set-Cookie")) {
                 if(header.contains("X-Bonita-API-Token")) {
-                  memes.putString("X-Bonita-API-Token", header.split("=",2)[1]).apply();
+                  //memes.putString("X-Bonita-API-Token", header.split("=",2)[1]).apply();
+                  memes.putString("X-Bonita-API-Token",header.split("=",2)[1].split(";",2)[0]);
                 }
                 cookies.add(header);
             }

@@ -59,6 +59,8 @@ dependencies {
     implementation "com.google.dagger:hilt-android:$hilt_version"
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
+    implementation 'com.jakewharton.threetenabp:threetenabp:1.2.1'
+
     // Card View
     def cardview_version = "1.0.0"
     implementation "androidx.cardview:cardview:$cardview_version"

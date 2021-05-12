@@ -27,6 +27,7 @@ import tn.oussama.mp_android_bonita.framework.utils.clearUserSession
 import tn.oussama.mp_android_bonita.framework.utils.storeToSharedPreferences
 import tn.oussama.mp_android_bonita.presentation.user.LoginViewModel
 import java.io.Serializable
+import java.lang.Exception
 import javax.inject.Inject
 
 
@@ -38,17 +39,18 @@ class MainActivity : AppCompatActivity() {
       lateinit var  preferences : SharedPreferences
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        preferences  = getSharedPreferences( getPackageName() + "_preferences", MODE_PRIVATE);
+        preferences  = getSharedPreferences( packageName + "_preferences", MODE_PRIVATE);
 
-        if(intent.getBooleanExtra("LOGOUT",false)) {
+        //if(intent.getBooleanExtra("LOGOUT",false)) {
+        try {
             viewModel.logout()
+        }catch (e: Exception) {
+            Log.i("********CLEARING SHARED PREF DATA EXCEPTION IN LOGIN MAIN ACTIVITY********","SHARED PREF CLEAING EXCEPTION")
         }
-
+        //}
 
         viewModel.isLoggedIn().observe(this, Observer {
             this.lifecycleScope.launch {
@@ -64,15 +66,13 @@ class MainActivity : AppCompatActivity() {
                     putExtra("user",viewModel.user)
                     storeToSharedPreferences("user",viewModel.user as Serializable)
                 }
-
                 startActivity(intent)
             }
         })
 
         btnLogin.setOnClickListener {
-            spinner.visibility = View.VISIBLE
-            viewModel.login(username = username.text.toString(),password = password.text.toString())
+          spinner.visibility = View.VISIBLE
+          viewModel.login(username = username.text.toString(),password = password.text.toString())
         }
     }
-
 }
