@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.process_recycler_view_item.view.*
 import tn.oussama.core.domain.Process
 import tn.oussama.mp_android_bonita.ProcessActivity
 
-
 class ProcessViewHolder (itemView: View): RecyclerView.ViewHolder(itemView) {
     val label: TextView = itemView.label
     val type: TextView = itemView.type

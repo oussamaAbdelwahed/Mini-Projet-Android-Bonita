@@ -13,7 +13,6 @@ import okhttp3.Request;
 import okhttp3.Response;
 import tn.oussama.mp_android_bonita.MainActivity;
 
-
 public class ReceivedCookiesInterceptor implements Interceptor {
    /* private Context context;
     public ReceivedCookiesInterceptor(Context context) {

@@ -57,10 +57,10 @@ class ListProcessesActivity : AppCompatActivity() {
                 is DataState.Loading -> {
                     spinnerRV.visibility = View.VISIBLE
                 }is DataState.Success -> {
-                     this.networkCall1Done = true
-                     if(this.networkCall2Done) {
-                         spinnerRV.visibility = View.GONE
-                     }
+                  this.networkCall1Done = true
+                  if(this.networkCall2Done) {
+                     spinnerRV.visibility = View.GONE
+                  }
                   val l = it.data
                   if(l.isNotEmpty()) {
                     innerConstraintLayout.visibility = View.GONE
@@ -165,28 +165,11 @@ class ListProcessesActivity : AppCompatActivity() {
         this.categContainer.addView(v)
     }
 
-
-    /*private fun addTheAllCategory() {
-        val layoutInflater : LayoutInflater = LayoutInflater.from(this).context.getSystemService(
-            Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-
-        val v: View = layoutInflater.inflate(R.layout.rounded_button,null,false)
-        val cardView: CardView  = v.findViewById(R.id.btnLogin)
-        val textView: TextView  =v.findViewById(R.id.categName)
-        textView.id = 0
-        textView.text = "Tous"
-       // cardView.id= 0
-        cardView.tag=0
-        this.categContainer.addView(v)
-
-        v.setOnClickListener {
-            this.onCategoryClicked(it)
-        }
-
-        this.previousSelectedCat = v.findViewById(R.id.bgConstraintLayout) as ConstraintLayout
-    }*/
-
     private fun onCategoryClicked(btn: View) {
+        //here we must do twiking to show all the spinner container when changing to a new category
+        //this instruction is added now
+        innerConstraintLayout.visibility = View.VISIBLE
+        //end added instruction
         spinnerRV.visibility = View.VISIBLE
         this.previousSelectedCat.background = ContextCompat.getDrawable(this, R.drawable.custom_category_button)
         this.previousSelectedCat = btn.findViewById(R.id.bgConstraintLayout) as ConstraintLayout
@@ -200,6 +183,5 @@ class ListProcessesActivity : AppCompatActivity() {
           viewModel.setListProcessStateEvent(ListProcessStateEvent.GetProcessesEvent,userId = userID,pageIndex = 0,perPage = 20)
 
     }
-
 
 }

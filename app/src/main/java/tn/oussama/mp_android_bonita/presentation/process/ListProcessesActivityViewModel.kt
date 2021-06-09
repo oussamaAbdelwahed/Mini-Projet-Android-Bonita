@@ -38,7 +38,7 @@ class ListProcessesActivityViewModel @Inject constructor(
 
     fun getListOfProcesses(): LiveData<DataState<List<Process>>> = listOfProcesses
     fun getListOfCategories(): LiveData<DataState<List<Category>>> = listOfCategories
-   // fun getListOfProcessesByCategory(): LiveData<DataState<List<Process>>> = listOfProcesses
+    //fun getListOfProcessesByCategory(): LiveData<DataState<List<Process>>> = listOfProcesses
 
 
     fun setListProcessStateEvent(e:ListProcessStateEvent,userId:Long,pageIndex:Int=0,perPage:Int=20, categID: Long=0) {
