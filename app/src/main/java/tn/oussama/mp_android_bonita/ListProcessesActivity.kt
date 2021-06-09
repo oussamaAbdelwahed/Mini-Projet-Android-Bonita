@@ -154,6 +154,7 @@ class ListProcessesActivity : AppCompatActivity() {
         cardView.tag=category.id.toString()
 
 
+
         if(category.id == 0L) {
           this.previousSelectedCat = v.findViewById(R.id.bgConstraintLayout) as ConstraintLayout
           this.previousSelectedCat.background = ContextCompat.getDrawable(this, R.drawable.custom_login_button)
